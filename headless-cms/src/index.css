@@ -1,0 +1,320 @@
+/* ==================== GLOBAL CSS ====================== */
+@import url('https://fonts.googleapis.com/css2?family=Quattrocento&family=Quattrocento+Sans&display=swap');
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  font-size: 100%;
+}
+/* Variables */
+:root {
+  /* COLORS */
+  /* primary */
+  --primary-100: #d8eefe;
+  --primary-200: #b1ddfe;
+  --primary-300: #8bcdfd;
+  --primary-400: #64bafd;
+  --primary-500: #3da9fc;
+  --primary-600: #3187ca;
+  --primary-700: #256597;
+  --primary-800: #184465;
+  --primary-900: #0c2232;
+  /* grey */
+  --grey-50: #f9fafb;
+  --grey-100: #f3f4f6;
+  --grey-200: #e5e7eb;
+  --grey-300: #d1d5db;
+  --grey-400: #9ca3af;
+  --grey-500: #6b7280;
+  --grey-600: #4b5563;
+  --grey-700: #374151;
+  --grey-800: #1f2937;
+  --grey-900: #111827;
+  /* secondary */
+  --black: #222;
+  --white: #fff;
+  --red-light: #f8d7da;
+  --red-dark: #842029;
+  --green-light: #d1e7dd;
+  --green-dark: #0f5132;
+  /* specific vars */
+  --backgroundColor: var(--grey-100);
+  /* TYPOGRAPHY */
+  --headingFont: 'Quattrocento', serif;
+  --bodyFont: 'Quattrocento Sans', sans-serif;
+  --letterSpacing: 1.2px;
+  /* BORDER */
+  --borderRadius: 0.25rem;
+  /* TRANSITION */
+  --transition: 0.3s ease-in-out all;
+  /* WIDTH */
+  --max-width: 10270px;
+  --fixed-width: 500px;
+}
+
+/* Typography */
+body {
+  background: var(--backgroundColor);
+  font-weight: 400;
+  line-height: 1.75;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+  font-family: var(--headingFont);
+  font-weight: 400;
+  line-height: 1.3;
+  text-transform: capitalize;
+}
+h1 {
+  font-size: 3.052rem;
+}
+h2 {
+  font-size: 2.441rem;
+}
+h3 {
+  font-size: 1.953rem;
+}
+h4 {
+  font-size: 1.563rem;
+}
+h5 {
+  font-size: 1.25rem;
+}
+small,
+.text-small {
+  font-size: var(--smallText);
+}
+a {
+  text-decoration: none;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+/* ==================== PROJECT CSS ====================== */
+.body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--backgroundColor);
+  padding-inline: 5%;
+}
+.close-body {
+  opacity: 0;
+  visibility: hidden;
+}
+.body-lg {
+  display: none;
+}
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-inline: auto;
+  margin-block: 1rem;
+  position: fixed;
+  width: 90%;
+}
+.navbar_logo {
+  text-transform: lowercase;
+  font-weight: 600;
+  color: var(--primary-900);
+  letter-spacing: var(--letterSpacing);
+}
+.clip {
+  width: 100%;
+  height: 50vh;
+  background-color: var(--grey-900);
+  position: absolute;
+  left: 0;
+  transform: translateY(50%);
+  opacity: 0.2;
+  clip-path: polygon(0% 0%, 0% 100%, 100% 0% 100% 0%);
+}
+
+.open-sidebar {
+  background-color: var(--primary-900);
+  border: transparent;
+  border-radius: var(--borderRadius);
+  width: 30px;
+  height: 30px;
+  padding-top: 5px;
+  color: var(--white);
+  cursor: pointer;
+}
+.open-sidebar:hover {
+  background-color: var(--primary-700);
+  transform: scale(1.1);
+}
+.content-container {
+  color: rgb(0, 0, 17);
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+  justify-content: center;
+}
+.content-container h2 {
+  max-width: 10em;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  font-family: var(--headingFont);
+}
+.content-container p {
+  font-size: 1rem;
+  letter-spacing: var(--letterSpacing);
+  font-family: var(--bodyFont);
+}
+.sidebar-section {
+  min-height: 100vh;
+  width: 100%;
+  display: grid;
+  align-content: start;
+  gap: 2rem;
+  text-transform: capitalize;
+  padding: 15% 5%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  opacity: 1;
+  font-family: var(--bodyFont);
+}
+.close-sidebar-section {
+  /* display: none; */
+  opacity: 0;
+  visibility: hidden;
+}
+.close-sidebar {
+  position: absolute;
+  font-size: 2rem;
+  color: var(--primary-700);
+  top: 18px;
+  right: 29px;
+  border: transparent;
+  background: transparent;
+  cursor: pointer;
+}
+.close-sidebar:hover {
+  transform: scale(1.1);
+}
+
+.sidebar-section h5 {
+  color: var(--primary-700);
+  margin-bottom: 0.5rem;
+}
+.sidebar-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.sidebar-link {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  gap: 1rem;
+  color: var(--grey-500);
+}
+.sidebar-link a {
+  color: var(--primary-900);
+}
+.sidebar-link a:hover {
+  text-decoration: underline;
+}
+.dropmenu-section {
+  position: absolute;
+  opacity: 0;
+}
+
+@media screen and (min-width: 800px) {
+  .body {
+    display: none;
+  }
+  .body-lg {
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--backgroundColor);
+    padding-inline: 5%;
+    display: block;
+  }
+  .large-container {
+    max-width: 1027px;
+    margin-inline: auto;
+  }
+  .large-container-navbar {
+    position: fixed;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    max-width: var(--max-width);
+    justify-content: start;
+  }
+  .pages {
+    text-transform: capitalize;
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 1.5rem;
+    flex-grow: 1;
+    justify-content: center;
+  }
+  .single-page {
+    cursor: pointer;
+  }
+  .content-container {
+    text-align: center;
+    margin-inline: auto;
+  }
+  .content-container h2 {
+    margin-inline: auto;
+  }
+  .content-container p {
+    max-width: 35em;
+    margin-inline: auto;
+  }
+  .dropmenu-section {
+    background-color: var(--white);
+    width: 80%;
+    height: max-content;
+    max-width: 1027px;
+    position: fixed;
+    top: 7vh;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 1.5rem;
+    border-radius: var(--borderRadius);
+    text-transform: capitalize;
+    opacity: 0;
+  }
+  .show-dropmenu-section {
+    opacity: 1;
+    /* transition-delay: 1s; */
+  }
+  .dropmenu-section h5 {
+    color: var(--primary-700);
+    margin-bottom: 0.5rem;
+  }
+  .dropmenu-link-container {
+    display: flex;
+    flex-flow: column wrap;
+    max-height: 5rem;
+  }
+  .dropmenu-link {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 1rem;
+    color: var(--grey-500);
+  }
+  .dropmenu-link a {
+    color: var(--primary-900);
+  }
+  .dropmenu-link a:hover {
+    text-decoration: underline;
+  }
+}

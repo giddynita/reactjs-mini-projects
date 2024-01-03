@@ -1,0 +1,221 @@
+/* ==================== GLOBAL CSS ====================== */
+@import url('https://fonts.googleapis.com/css2?family=Quattrocento&family=Quattrocento+Sans&display=swap');
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  font-size: 100%;
+}
+/* Variables */
+:root {
+  /* COLORS */
+  /* primary */
+  --primary-100: #d8eefe;
+  --primary-200: #b1ddfe;
+  --primary-300: #8bcdfd;
+  --primary-400: #64bafd;
+  --primary-500: #3da9fc;
+  --primary-600: #3187ca;
+  --primary-700: #256597;
+  --primary-800: #184465;
+  --primary-900: #0c2232;
+  /* grey */
+  --grey-50: #f9fafb;
+  --grey-100: #f3f4f6;
+  --grey-200: #e5e7eb;
+  --grey-300: #d1d5db;
+  --grey-400: #9ca3af;
+  --grey-500: #6b7280;
+  --grey-600: #4b5563;
+  --grey-700: #374151;
+  --grey-800: #1f2937;
+  --grey-900: #111827;
+  /* secondary */
+  --black: #222;
+  --white: #fff;
+  --red-light: #f8d7da;
+  --red-dark: #842029;
+  --green-light: #d1e7dd;
+  --green-dark: #0f5132;
+  /* specific vars */
+  --backgroundColor: var(--primary-100);
+  --textColor: var(--grey-900);
+  /* TYPOGRAPHY */
+  --headingFont: 'Quattrocento', serif;
+  --bodyFont: 'Quattrocento Sans', sans-serif;
+  --smallText: 0.7em;
+  --letterSpacing: 1px;
+  /* BORDER */
+  --borderRadius: 0.25rem;
+  /* TRANSITION */
+  --transition: 0.3s ease-in-out all;
+  /* WIDTH */
+  --max-width: 1120px;
+  --fixed-width: 500px;
+  /* BOX SHADOWS */
+  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
+/* Typography */
+body {
+  background: var(--backgroundColor);
+  font-weight: 400;
+  line-height: 1.75;
+  color: var(--textColor);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+  font-family: var(--headingFont);
+  font-weight: 400;
+  line-height: 1.3;
+  text-transform: capitalize;
+}
+h1 {
+  font-size: 3.052rem;
+}
+h2 {
+  font-size: 2.441rem;
+}
+h3 {
+  font-size: 1.953rem;
+}
+h4 {
+  font-size: 1.563rem;
+}
+h5 {
+  font-size: 1.25rem;
+}
+small,
+.text-small {
+  font-size: var(--smallText);
+}
+a {
+  text-decoration: none;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* Images */
+.img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* Buttons */
+.btn {
+  cursor: pointer;
+  color: var(--white);
+  background: var(--primary-500);
+  border: transparent;
+  border-radius: var(--borderRadius);
+  letter-spacing: var(--letterSpacing);
+  padding: 0.375rem 0.75rem;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  text-transform: capitalize;
+  display: inline-block;
+  font-family: var(--bodyFont);
+}
+.btn:hover {
+  background: var(--primary-700);
+  box-shadow: var(--shadow-lg);
+}
+.btn-hipster {
+  color: var(--primary-500);
+  background: var(--primary-200);
+}
+.btn-hipster:hover {
+  color: var(--primary-200);
+  background: var(--primary-700);
+}
+.btn-block {
+  width: 100%;
+}
+
+/* ==================== PROJECT CSS ====================== */
+main {
+  background-color: var(--white);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.question-section {
+  background-color: var(--white);
+  width: 90%;
+  max-width: 800px;
+  padding-block: 1.5rem;
+  border-radius: var(--borderRadius);
+  box-shadow: var(--shadow);
+}
+.question-section_title {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-family: var(--headingFont);
+}
+.question {
+  width: 90%;
+  border: 2px solid var(--primary-100);
+  box-shadow: var(--shadow-md);
+  margin: 1.5rem auto;
+  padding: 1rem 1.5rem;
+  font-family: var(--bodyFont);
+  display: flex;
+  flex-flow: column;
+  gap: 10px;
+}
+.question p {
+  margin-bottom: 0;
+  max-width: max-content;
+  font-family: var(--bodyFont);
+}
+.header {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+.header h5 {
+  margin-bottom: 0;
+  font-weight: 600;
+  text-transform: none;
+}
+.header button {
+  color: white;
+  background: var(--primary-800);
+  border: none;
+  border-radius: 50%;
+  min-width: 32px;
+  height: 32px;
+  cursor: pointer;
+  margin-left: 1rem;
+}
+.icon {
+  padding: 0;
+  margin: 0;
+}
+@media screen and (max-height: 750px) {
+  .question-section {
+    margin-block: 2rem;
+  }
+}

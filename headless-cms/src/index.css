@@ -104,7 +104,7 @@ ul {
 /* ==================== PROJECT CSS ====================== */
 .body {
   width: 100%;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   background-color: var(--backgroundColor);
   padding-inline: 5%;
 }
@@ -123,6 +123,7 @@ ul {
   margin-block: 1rem;
   position: fixed;
   width: 90%;
+  height: 4rem;
 }
 .navbar_logo {
   text-transform: lowercase;
@@ -159,7 +160,7 @@ ul {
   color: rgb(0, 0, 17);
   display: flex;
   flex-flow: column;
-  min-height: 100vh;
+  height: calc(100vh - 4rem);
   justify-content: center;
 }
 .content-container h2 {
@@ -174,7 +175,7 @@ ul {
   font-family: var(--bodyFont);
 }
 .sidebar-section {
-  min-height: 100vh;
+  height: calc(100vh - 4rem);
   width: 100%;
   display: grid;
   align-content: start;
@@ -230,9 +231,10 @@ ul {
 .dropmenu-section {
   position: absolute;
   opacity: 0;
+  top: 0;
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 992px) {
   .body {
     display: none;
   }
@@ -254,6 +256,7 @@ ul {
     align-items: center;
     max-width: var(--max-width);
     justify-content: start;
+    height: 4rem;
   }
   .pages {
     text-transform: capitalize;

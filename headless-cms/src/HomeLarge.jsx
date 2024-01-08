@@ -21,7 +21,7 @@ const HomeLarge = () => {
                       getSubmenu(pageId)
                       showSubmenu()
                     }}
-                    onClick={() => {
+                    onMouseLeave={() => {
                       setActive(!active)
                     }}
                   >

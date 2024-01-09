@@ -6,12 +6,8 @@ import { GlobalContext } from './context'
 const Sidebar = () => {
   const { sidebar, closeSidebar } = useContext(GlobalContext)
   return (
-    <section
-      className={
-        sidebar ? 'sidebar-section' : 'close-sidebar-section sidebar-section'
-      }
-    >
-      <button className="close-sidebar" onClick={closeSidebar}>
+    <aside className={sidebar ? 'sidebar' : 'sidebar close-sidebar'}>
+      <button className="close-menu-btn" onClick={closeSidebar}>
         <FaTimes />
       </button>
       {sublinks.map((sublink) => {
@@ -35,7 +31,7 @@ const Sidebar = () => {
           </div>
         )
       })}
-    </section>
+    </aside>
   )
 }
 export default Sidebar

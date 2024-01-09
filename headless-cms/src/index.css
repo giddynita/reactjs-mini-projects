@@ -53,7 +53,7 @@ html {
   /* TRANSITION */
   --transition: 0.3s ease-in-out all;
   /* WIDTH */
-  --max-width: 10270px;
+  --max-width: 1027px;
   --fixed-width: 500px;
 }
 
@@ -62,6 +62,7 @@ body {
   background: var(--backgroundColor);
   font-weight: 400;
   line-height: 1.75;
+  min-height: 100vh;
 }
 
 h1,
@@ -102,9 +103,9 @@ ul {
   padding: 0;
 }
 /* ==================== PROJECT CSS ====================== */
-.body {
+/* .body {
   width: 100%;
-  /* min-height: 100vh; */
+  
   background-color: var(--backgroundColor);
   padding-inline: 5%;
 }
@@ -189,7 +190,7 @@ ul {
   font-family: var(--bodyFont);
 }
 .close-sidebar-section {
-  /* display: none; */
+   display: none; 
   opacity: 0;
   visibility: hidden;
 }
@@ -296,7 +297,209 @@ ul {
   }
   .show-dropmenu-section {
     opacity: 1;
-    /* transition-delay: 1s; */
+     transition-delay: 1s;
+  }
+  .dropmenu-section h5 {
+    color: var(--primary-700);
+    margin-bottom: 0.5rem;
+  }
+  .dropmenu-link-container {
+    display: flex;
+    flex-flow: column wrap;
+    max-height: 5rem;
+  }
+  .dropmenu-link {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 1rem;
+    color: var(--grey-500);
+  }
+  .dropmenu-link a {
+    color: var(--primary-900);
+  }
+  .dropmenu-link a:hover {
+    text-decoration: underline;
+  }
+}
+ */
+
+/*
+================
+  NAVBAR
+================ 
+*/
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4rem;
+  padding-inline: 5%;
+  margin-inline: auto;
+}
+.logo {
+  text-transform: lowercase;
+  font-weight: 600;
+  color: var(--primary-900);
+  letter-spacing: var(--letterSpacing);
+}
+.menu-btn {
+  background-color: var(--primary-900);
+  border: transparent;
+  border-radius: var(--borderRadius);
+  color: var(--white);
+  cursor: pointer;
+  padding: 0.5rem 0.5rem;
+}
+.menu-btn:hover {
+  background-color: var(--primary-700);
+  transform: scale(1.1);
+}
+.nav-links {
+  display: none;
+}
+@media screen and (min-width: 992px) {
+  .navbar {
+    max-width: var(--max-width);
+  }
+  .menu-btn {
+    display: none;
+  }
+  .nav-links {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    gap: 1.2rem;
+  }
+  .sublinks {
+    text-transform: capitalize;
+    color: var(--primary-900);
+    border: transparent;
+    background: transparent;
+  }
+}
+/*
+================
+  HERO
+================ 
+*/
+.hero {
+  height: calc(100vh - 4rem);
+  display: flex;
+  align-items: center;
+  padding: 5%;
+  position: relative;
+}
+.clip {
+  width: 100%;
+  height: 50vh;
+  background-color: var(--grey-900);
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.2;
+  clip-path: polygon(0% 0%, 0% 100%, 100% 0% 100% 0%);
+}
+.content-container h2 {
+  max-width: 30rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  font-family: var(--headingFont);
+}
+.content-container {
+  font-family: var(--bodyFont);
+}
+@media screen and (min-width: 992px) {
+  .hero {
+    justify-content: center;
+  }
+  .content-container h2 {
+    text-align: center;
+    margin-inline: auto;
+  }
+}
+/*
+================
+  SIDEBAR
+================ 
+*/
+.sidebar {
+  background-color: var(--white);
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  padding: 15% 5%;
+  position: fixed;
+  top: 0;
+  opacity: 1;
+  visibility: visible;
+}
+.close-sidebar {
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition);
+}
+.close-menu-btn {
+  position: absolute;
+  right: 5%;
+  padding: 0.5rem;
+  font-weight: 600;
+  font-size: larger;
+  top: 20px;
+  border: transparent;
+  background: transparent;
+  color: var(--primary-700);
+}
+.sidebar h5 {
+  color: var(--primary-700);
+  margin-bottom: 0.5rem;
+}
+.sidebar-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 1rem;
+}
+.sidebar-link {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  gap: 1rem;
+  color: var(--grey-500);
+  text-transform: capitalize;
+}
+.sidebar-link a {
+  color: var(--primary-900);
+}
+.sidebar-link a:hover {
+  text-decoration: underline;
+}
+@media screen and (min-width: 992px) {
+  .sidebar {
+    display: none;
+  }
+}
+/*
+================
+  SUBMENU
+================ 
+*/
+.submenu {
+  visibility: hidden;
+}
+@media screen and (min-width: 992px) {
+  .submenu {
+    visibility: visible;
+    background-color: red;
+    height: max-content;
+    padding: 1.5rem;
+    border-radius: var(--borderRadius);
+    max-width: var(--max-width);
+    margin-inline: auto;
+  }
+  .show-dropmenu-section {
+    opacity: 1;
+    transition-delay: 1s;
   }
   .dropmenu-section h5 {
     color: var(--primary-700);

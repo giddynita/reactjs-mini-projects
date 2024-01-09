@@ -2,7 +2,7 @@ import { createContext, useState } from 'react'
 export const GlobalContext = createContext()
 import sublinks from './data'
 
-const Submenus = ({ children }) => {
+const Context = ({ children }) => {
   const [sidebar, setSidebar] = useState(false)
   const [submenu, setSubmenu] = useState(sublinks)
   const [active, setActive] = useState(false)
@@ -41,4 +41,4 @@ const Submenus = ({ children }) => {
     </GlobalContext.Provider>
   )
 }
-export default Submenus
+export default Context

@@ -1,15 +1,17 @@
-import HomeLarge from './HomeLarge'
-import HomeSmall from './HomeSmall'
-import Submenus from './context'
-import Dropmenu from './Dropmenu'
+import Context from './context'
+import NavBar from './NavBar'
+import Hero from './Hero'
+import Sidebar from './Sidebar'
+import Submenu from './Submenu'
 
-const Submenu = () => {
+const App = () => {
   return (
-    <Submenus>
-      <HomeSmall />
-      <HomeLarge />
-      <Dropmenu />
-    </Submenus>
+    <Context>
+      <NavBar />
+      <Hero />
+      <Sidebar />
+      <Submenu />
+    </Context>
   )
 }
-export default Submenu
+export default App

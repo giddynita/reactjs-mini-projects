@@ -55,6 +55,14 @@ html {
   /* WIDTH */
   --max-width: 1027px;
   --fixed-width: 500px;
+  /* BOX SHADOWS */
+  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 8px 10px -6px rgba(0, 0, 0, 0.1);
 }
 
 /* Typography */
@@ -370,12 +378,17 @@ ul {
     display: flex;
     justify-content: center;
     gap: 1.2rem;
+    align-self: stretch;
   }
   .sublinks {
     text-transform: capitalize;
     color: var(--primary-900);
     border: transparent;
     background: transparent;
+  }
+  .sublinks:hover {
+    color: var(--primary-700);
+    font-weight: 600;
   }
 }
 /*
@@ -485,42 +498,46 @@ ul {
 ================ 
 */
 .submenu {
-  visibility: hidden;
+  display: none;
 }
 @media screen and (min-width: 992px) {
   .submenu {
-    visibility: visible;
-    background-color: red;
+    display: block;
+    background-color: var(--white);
     height: max-content;
     padding: 1.5rem;
     border-radius: var(--borderRadius);
+    width: 90%;
     max-width: var(--max-width);
-    margin-inline: auto;
+    box-shadow: var(--shadow);
+    position: fixed;
+    top: 4rem;
+    left: 50%;
+    transform: translateX(-50%);
+    visibility: hidden;
   }
-  .show-dropmenu-section {
-    opacity: 1;
-    transition-delay: 1s;
+  .show-submenu {
+    visibility: visible;
   }
-  .dropmenu-section h5 {
+  .submenu h5 {
     color: var(--primary-700);
     margin-bottom: 0.5rem;
   }
-  .dropmenu-link-container {
-    display: flex;
-    flex-flow: column wrap;
-    max-height: 5rem;
+  .submenu-content {
+    display: grid;
   }
-  .dropmenu-link {
+  .submenu-link {
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
     gap: 1rem;
     color: var(--grey-500);
   }
-  .dropmenu-link a {
+  .submenu-link a {
     color: var(--primary-900);
+    text-transform: capitalize;
   }
-  .dropmenu-link a:hover {
+  .submenu-link a:hover {
     text-decoration: underline;
   }
 }

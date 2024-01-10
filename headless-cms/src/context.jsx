@@ -4,8 +4,7 @@ import sublinks from './data'
 
 const Context = ({ children }) => {
   const [sidebar, setSidebar] = useState(false)
-  const [submenu, setSubmenu] = useState(sublinks)
-  const [active, setActive] = useState(false)
+  const [pageId, setPageId] = useState(null)
 
   const openSidebar = () => {
     setSidebar(true)
@@ -13,28 +12,24 @@ const Context = ({ children }) => {
   const closeSidebar = () => {
     setSidebar(false)
   }
-  const getSubmenu = (id) => {
+  /* const getSubmenu = (id) => {
     const filter = sublinks.filter((sublink) => sublink.pageId === id)
     setSubmenu(filter)
   }
   const showSubmenu = () => {
     setActive(true)
-  }
-  const hideShowSubmenu = () => {
+  } */
+  /* const hideShowSubmenu = () => {
     setActive(false)
-  }
+  } */
   return (
     <GlobalContext.Provider
       value={{
         sidebar,
         openSidebar,
         closeSidebar,
-        submenu,
-        getSubmenu,
-        active,
-        showSubmenu,
-        hideShowSubmenu,
-        setActive,
+        pageId,
+        setPageId,
       }}
     >
       {children}

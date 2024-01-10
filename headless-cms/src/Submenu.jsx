@@ -1,22 +1,45 @@
-import { useContext } from 'react'
+import { useContext, useRef } from 'react'
 import { GlobalContext } from './context'
+import sublinks from './data'
 const Dropmenu = () => {
-  const { submenu, active } = useContext(GlobalContext)
-  const { page, links } = submenu[0]
+  const { pageId, setPageId } = useContext(GlobalContext)
+  const pageOnHover = sublinks.find((sublinks) => sublinks.pageId === pageId)
+  const submenuRef = useRef(null)
+  const hideSUbmenu = (event) => {
+    const submenu = submenuRef.current
+    const { left, right, bottom } = submenu.getBoundingClientRect()
+    const { clientX, clientY } = event
+    if (clientX < left || clientX > right || clientY > bottom - 1) {
+      setPageId(null)
+    }
+  }
+
   return (
-    <section className="submenu">
-      <h5>{page}</h5>
-      <ul className="dropmenu-link-container">
-        {links.map((link) => {
+    <section
+      className={pageOnHover?.pageId ? 'submenu show-submenu' : 'show-submenu'}
+      ref={submenuRef}
+      onMouseLeave={hideSUbmenu}
+    >
+      <h5>{pageOnHover?.page}</h5>
+      <div
+        className="submenu-content"
+        style={{
+          gridTemplateColumns:
+            pageOnHover?.links?.length > 3 ? '1fr 1fr' : '1fr',
+        }}
+      >
+        {pageOnHover?.links?.map((link) => {
           const { id, label, icon, url } = link
           return (
-            <li key={id} className="submenu-link">
-              {icon}
-              <a href={url}>{label}</a>
-            </li>
+            <ul key={id}>
+              <li className="submenu-link">
+                {icon}
+                <a href={url}>{label}</a>
+              </li>
+            </ul>
           )
         })}
-      </ul>
+      </div>
     </section>
   )
 }

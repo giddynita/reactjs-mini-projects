@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { toast } from 'react-toastify'
 
 const GroceryForm = ({ addItem }) => {
   const [item, setItem] = useState('')
@@ -7,7 +8,11 @@ const GroceryForm = ({ addItem }) => {
   }
   const handleSubmit = (e) => {
     e.preventDefault()
-    addItem(item)
+    if (item) {
+      addItem(item)
+    } else {
+      toast.error('Enter an item')
+    }
     setItem('')
   }
   return (

@@ -13,19 +13,6 @@ const setLocalStorage = (items) => {
 
 const GroceryBud = () => {
   const [groceryList, setGroceryList] = useState(defaultList)
-
-  const success = (result) => {
-    toast.success(result, {
-      position: 'top-center',
-      autoClose: 1000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: 'light',
-    })
-  }
   const addItem = (item) => {
     const newItem = {
       name: item,
@@ -33,18 +20,14 @@ const GroceryBud = () => {
       id: nanoid(),
     }
     const newList = [...groceryList, newItem]
-    if (item) {
-      setGroceryList(newList)
-      success('Grocery List Updated')
-    } else {
-      success('No Item Added')
-    }
+    setGroceryList(newList)
+    toast.success('Grocery List Updated')
     setLocalStorage(newList)
   }
   const handleDelete = (tag) => {
     const newList = groceryList.filter((item) => item.id !== tag)
     setGroceryList(newList)
-    success('Item Removed')
+    toast.success('Item Removed')
     setLocalStorage(removeItem)
   }
   const editItem = (tag) => {
@@ -61,19 +44,9 @@ const GroceryBud = () => {
   return (
     <main>
       <div className="grocery">
-        <ToastContainer
-          position="top-center"
-          autoClose={1000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="light"
-        />
+        <ToastContainer position="top-center" />
         <h2 className="grocery-title">grocery list</h2>
-        <GroceryForm addItem={addItem} success={success} />
+        <GroceryForm addItem={addItem} />
         <GroceryList
           groceryList={groceryList}
           handleDelete={handleDelete}

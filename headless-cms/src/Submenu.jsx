@@ -16,7 +16,7 @@ const Dropmenu = () => {
 
   return (
     <section
-      className={pageOnHover?.pageId ? 'submenu show-submenu' : 'show-submenu'}
+      className={pageOnHover?.pageId ? 'show-submenu' : 'submenu'}
       ref={submenuRef}
       onMouseLeave={hideSUbmenu}
     >

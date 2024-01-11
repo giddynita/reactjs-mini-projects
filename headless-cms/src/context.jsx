@@ -1,6 +1,5 @@
 import { createContext, useState } from 'react'
 export const GlobalContext = createContext()
-import sublinks from './data'
 
 const Context = ({ children }) => {
   const [sidebar, setSidebar] = useState(false)
@@ -12,16 +11,7 @@ const Context = ({ children }) => {
   const closeSidebar = () => {
     setSidebar(false)
   }
-  /* const getSubmenu = (id) => {
-    const filter = sublinks.filter((sublink) => sublink.pageId === id)
-    setSubmenu(filter)
-  }
-  const showSubmenu = () => {
-    setActive(true)
-  } */
-  /* const hideShowSubmenu = () => {
-    setActive(false)
-  } */
+
   return (
     <GlobalContext.Provider
       value={{

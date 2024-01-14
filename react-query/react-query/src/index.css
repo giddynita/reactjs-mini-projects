@@ -221,7 +221,7 @@ ul {
   letter-spacing: var(--letterSpacing);
   text-transform: capitalize;
 }
-/* alert */
+/* loading */
 
 @keyframes spinner {
   to {

@@ -1,6 +1,6 @@
-const Person = ({ id, img, name, age }) => {
+const Person = ({ img, name, age }) => {
   return (
-    <div key={id} className="person">
+    <div className="person">
       <img src={img} alt={name} className="img" />
       <div>
         <h4>{name}</h4>

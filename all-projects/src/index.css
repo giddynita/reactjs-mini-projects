@@ -1,0 +1,282 @@
+/* ==================== GLOBAL CSS ====================== */
+@import url('https://fonts.googleapis.com/css2?family=Quattrocento&family=Quattrocento+Sans&display=swap');
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+  margin: 0;
+}
+img {
+  display: block;
+  max-width: 100%;
+}
+
+html {
+  font-size: 100%;
+}
+/* Variables */
+:root {
+  /* COLORS */
+  /* primary */
+  --primary-100: #d8eefe;
+  --primary-200: #b1ddfe;
+  --primary-300: #8bcdfd;
+  --primary-400: #64bafd;
+  --primary-500: #3da9fc;
+  --primary-600: #3187ca;
+  --primary-700: #256597;
+  --primary-800: #184465;
+  --primary-900: #0c2232;
+  /* grey */
+  --grey-50: #f9fafb;
+  --grey-100: #f3f4f6;
+  --grey-200: #e5e7eb;
+  --grey-300: #d1d5db;
+  --grey-400: #9ca3af;
+  --grey-500: #6b7280;
+  --grey-600: #4b5563;
+  --grey-700: #374151;
+  --grey-800: #1f2937;
+  --grey-900: #111827;
+  /* secondary */
+  --black: #222;
+  --white: #fff;
+  --red-light: #f8d7da;
+  --red-dark: #842029;
+  --green-light: #d1e7dd;
+  --green-dark: #0f5132;
+  /* TYPOGRAPHY */
+  --headingFont: 'Quattrocento', serif;
+  --bodyFont: 'Quattrocento Sans', sans-serif;
+  --letterSpacing: 1.2px;
+  /* BORDER */
+  --borderRadius: 0.25rem;
+  /* TRANSITION */
+  --transition: 0.3s ease-in-out all;
+  /* WIDTH */
+  --max-width: 1120px;
+  --fixed-width: 600px;
+  --view-width: 90vw;
+  /* dark mode setup */
+  --dark-mode-bg-color: #333;
+  --dark-mode-text-color: var(--primary-500);
+  --backgroundColor: var(--grey-100);
+  --textColor: var(--primary-600);
+  --iconColor: var(--grey-600);
+  --darkModeTransition: color 0.3s ease-in-out,
+    background-color 0.3s ease-in-out;
+  /* box shadow*/
+  --shadow-1: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --shadow-2: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-3: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-4: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --textColor: var(--dark-mode-text-color);
+    --backgroundColor: var(--dark-mode-bg-color);
+  }
+} */
+
+.dark-theme {
+  --textColor: var(--dark-mode-text-color);
+  --backgroundColor: var(--dark-mode-bg-color);
+  --iconColor: var(--white);
+}
+
+/* Typography */
+body {
+  background-color: var(--backgroundColor);
+  color: var(--textColor);
+  font-weight: 400;
+  line-height: 1.75;
+  transition: var(--darkModeTransition);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+  font-family: var(--headingFont);
+  font-weight: 400;
+  line-height: 1.3;
+  text-transform: capitalize;
+}
+h1 {
+  font-size: 3.052rem;
+}
+h2 {
+  font-size: 2.441rem;
+}
+h3 {
+  font-size: 1.953rem;
+}
+h4 {
+  font-size: 1.563rem;
+}
+h5 {
+  font-size: 1.25rem;
+}
+small,
+.text-small {
+  font-size: var(--smallText);
+}
+a {
+  text-decoration: none;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+/* loading */
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.fetching {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  color: red;
+}
+.loading {
+  width: 3rem;
+  height: 3rem;
+  border: 5px solid var(--grey-400);
+  border-radius: 50%;
+  border-top-color: var(--primary-500);
+  animation: spinner 0.6s linear infinite;
+  margin: 0 auto;
+}
+.no-image {
+  width: 6rem;
+  margin-bottom: 1rem;
+}
+/* ==================== PROJECT CSS ====================== */
+/*  
+===============
+HERO
+===============
+*/
+.hero {
+  background-color: var(--white);
+  padding-block: 6rem;
+  /* box-shadow: var(--shadow-2); */
+}
+.hero-center {
+  width: var(--view-width);
+  max-width: var(--max-width);
+  margin-inline: auto;
+}
+.hero-title {
+  padding-left: 2rem;
+}
+.hero-title h1 {
+  font-weight: 600;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--grey-700);
+}
+.hero-title p {
+  max-width: 30rem;
+  color: var(--grey-400);
+}
+.img {
+  display: none;
+}
+@media (min-width: 768px) {
+  .hero-title h1 {
+    font-size: 2.5rem;
+  }
+}
+@media (min-width: 992px) {
+  .hero-center {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: center;
+    gap: 8rem;
+  }
+  .hero-title h1 {
+    font-size: 3.5rem;
+  }
+  .img {
+    width: 100%;
+    display: block;
+    height: 15rem;
+    color: red;
+  }
+}
+/*  
+===============
+PROJECTS
+===============
+*/
+.project-section {
+  background-color: var(--grey-200);
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  padding-block: 2.5rem;
+}
+.heading {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  margin-bottom: 2.5rem;
+}
+.heading-title {
+  font-family: var(--headingFont);
+  letter-spacing: var(--letterSpacing);
+  margin-bottom: 5px;
+  color: var(--grey-600);
+}
+.title-underline {
+  background-color: var(--primary-500);
+  height: 4px;
+  width: 70px;
+  border-radius: var(--borderRadius);
+  margin-bottom: 0;
+}
+.project-container {
+  width: var(--view-width);
+  max-width: var(--max-width);
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+}
+.project {
+  max-width: 350px;
+  border-radius: var(--borderRadius);
+  box-shadow: var(--shadow-2);
+}
+.project:hover {
+  transform: scale(1.02);
+}
+.project img {
+  width: 100%;
+  height: 250px;
+  border-top-right-radius: var(--borderRadius);
+  border-top-left-radius: var(--borderRadius);
+}
+.project-title {
+  background-color: var(--white);
+  text-align: center;
+  font-size: 1.5rem;
+  text-transform: capitalize;
+  border-bottom-right-radius: var(--borderRadius);
+  border-bottom-left-radius: var(--borderRadius);
+  color: var(--grey-600);
+  padding-block: 0.4rem;
+}

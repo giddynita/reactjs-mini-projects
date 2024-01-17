@@ -1,19 +1,16 @@
-import heroImg from './assets/image-loading.svg'
+import heroImg from './assets/react.svg'
 
 const Hero = () => {
   return (
     <section className="hero">
       <div className="hero-center">
         <div className="hero-title">
-          <h1>react projects</h1>
+          <h1>react projects for beginners</h1>
           <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta
-            voluptas ullam distinctio, laboriosam placeat ad eos mollitia,
-            recusandae obcaecati a voluptate, dolor ab! Mollitia, deleniti natus
-            optio animi nisi debitis! Lorem, ipsum dolor sit amet consectetur
-            adipisicing elit. Dicta voluptas ullam distinctio, laboriosam
-            placeat ad eos mollitia, recusandae obcaecati a voluptate, dolor ab!
-            Mollitia, deleniti natus optio animi nisi debitis!
+            React is a JavaScript library that allows you to create dynamic,
+            interactive web pages that can respond to user input and changes in
+            data. These projects will help you learn the basics of React,
+            including JSX, components, props, and state.
           </p>
         </div>
         <div className="img-container">

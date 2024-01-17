@@ -19,9 +19,9 @@ const Projects = () => {
         {projects.map((project) => {
           const { id, title, url, img } = project
           return (
-            <figure className="project">
-              <a href={url} key={id}>
-                <img src={img} alt={title} />{' '}
+            <figure className="project" key={id}>
+              <a href={url}>
+                <img src={img} alt={title} />
               </a>
               <figcaption className="project-title">{title}</figcaption>
             </figure>

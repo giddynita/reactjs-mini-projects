@@ -59,7 +59,7 @@ html {
   --fixed-width: 600px;
   --view-width: 90vw;
   /* dark mode setup */
-  --dark-mode-bg-color: #333;
+  --dark-mode-hero-bg-color: #333;
   --dark-mode-text-color: var(--primary-500);
   --backgroundColor: var(--grey-100);
   --textColor: var(--primary-600);
@@ -74,6 +74,10 @@ html {
     0 4px 6px -2px rgba(0, 0, 0, 0.05);
   --shadow-4: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
     0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  /* additional */
+  --hero-bg: var(--white);
+  --HeadingColor: var(--grey-700);
+  --heroTextColor: var(--grey-400);
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -84,9 +88,10 @@ html {
 } */
 
 .dark-theme {
-  --textColor: var(--dark-mode-text-color);
-  --backgroundColor: var(--dark-mode-bg-color);
-  --iconColor: var(--white);
+  --hero-bg: var(--grey-800);
+  --HeadingColor: var(--white);
+  --heroTextColor: var(--grey-50);
+  --backgroundColor: var(--grey-900);
 }
 
 /* Typography */
@@ -96,6 +101,7 @@ body {
   font-weight: 400;
   line-height: 1.75;
   transition: var(--darkModeTransition);
+  font-family: var(--bodyFont);
 }
 
 h1,
@@ -137,29 +143,34 @@ ul {
 }
 /* loading */
 
-@keyframes spinner {
+@keyframes loading {
   to {
     transform: rotate(360deg);
   }
 }
-.fetching {
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  color: red;
-}
+
 .loading {
-  width: 3rem;
-  height: 3rem;
-  border: 5px solid var(--grey-400);
+  width: 2rem;
+  height: 2rem;
+  border: 3px solid var(--grey-400);
   border-radius: 50%;
   border-top-color: var(--primary-500);
-  animation: spinner 0.6s linear infinite;
-  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem auto 0.5rem;
+  animation: loading 0.6s linear infinite;
 }
-.no-image {
-  width: 6rem;
-  margin-bottom: 1rem;
+.loading-text {
+  text-align: center;
+  font-size: 1.2rem;
+  color: var(--HeadingColor);
+}
+.error {
+  text-align: center;
+  font-size: 1.2rem;
+  color: var(--HeadingColor);
+  margin-block: 2rem 0.5rem;
 }
 /* ==================== PROJECT CSS ====================== */
 /*  
@@ -168,35 +179,27 @@ HERO
 ===============
 */
 .hero {
-  background-color: var(--white);
+  background-color: var(--hero-bg);
   padding-block: 6rem;
-  /* box-shadow: var(--shadow-2); */
 }
 .hero-center {
   width: var(--view-width);
   max-width: var(--max-width);
   margin-inline: auto;
 }
-.hero-title {
-  padding-left: 2rem;
-}
 .hero-title h1 {
   font-weight: 600;
   font-size: 2rem;
   margin-bottom: 1rem;
-  color: var(--grey-700);
+  font-family: var(--headingFont);
+  color: var(--HeadingColor);
 }
 .hero-title p {
   max-width: 30rem;
-  color: var(--grey-400);
+  color: var(--heroTextColor);
 }
 .img {
   display: none;
-}
-@media (min-width: 768px) {
-  .hero-title h1 {
-    font-size: 2.5rem;
-  }
 }
 @media (min-width: 992px) {
   .hero-center {
@@ -205,9 +208,6 @@ HERO
     align-items: center;
     justify-content: center;
     gap: 8rem;
-  }
-  .hero-title h1 {
-    font-size: 3.5rem;
   }
   .img {
     width: 100%;
@@ -222,7 +222,6 @@ PROJECTS
 ===============
 */
 .project-section {
-  background-color: var(--grey-200);
   display: flex;
   flex-flow: column;
   justify-content: center;
@@ -239,7 +238,7 @@ PROJECTS
   font-family: var(--headingFont);
   letter-spacing: var(--letterSpacing);
   margin-bottom: 5px;
-  color: var(--grey-600);
+  color: var(--HeadingColor);
 }
 .title-underline {
   background-color: var(--primary-500);
@@ -251,15 +250,16 @@ PROJECTS
 .project-container {
   width: var(--view-width);
   max-width: var(--max-width);
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-  justify-content: center;
+  padding: 2rem;
+  display: grid;
+  gap: 2rem;
 }
 .project {
-  max-width: 350px;
+  width: 100%;
   border-radius: var(--borderRadius);
   box-shadow: var(--shadow-2);
+  background-color: var(--white);
+  display: block;
 }
 .project:hover {
   transform: scale(1.02);
@@ -267,16 +267,27 @@ PROJECTS
 .project img {
   width: 100%;
   height: 250px;
+  object-fit: contain;
   border-top-right-radius: var(--borderRadius);
   border-top-left-radius: var(--borderRadius);
 }
 .project-title {
-  background-color: var(--white);
+  background-color: var(--primary-500);
   text-align: center;
   font-size: 1.5rem;
   text-transform: capitalize;
   border-bottom-right-radius: var(--borderRadius);
   border-bottom-left-radius: var(--borderRadius);
-  color: var(--grey-600);
+  color: var(--white);
   padding-block: 0.4rem;
+}
+@media (min-width: 768px) {
+  .project-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 992px) {
+  .project-container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }

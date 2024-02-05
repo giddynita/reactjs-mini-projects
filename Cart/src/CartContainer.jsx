@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import CartItem from './CartItem'
-import cartItems from './data'
+
 import { AppContext } from './context'
 const CartContainer = () => {
   const { cart, clearCart, totalAmount } = useContext(AppContext)
